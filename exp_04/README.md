@@ -9,10 +9,17 @@ Download the following files to the destination nfs
 https://github.com/jonathanbader/chipseq/blob/master/assets/bamtools_filter_se.json
 https://github.com/jonathanbader/chipseq/blob/master/assets/bamtools_filter_pe.json
 
-Downloading the files to you local computer and copy them via ssh is also possible.
+Downloading the files to you local computer and copy them via ssh is also possible. Store them under /mnt/data/<yourName>/null/assets
 
 Please run the following command to execute the workflow:
+For Tarema and the basic schedulers:
+5;5;5
+time nextflow kuberun https://github.com/jonathanbader/chipseq -profile docker,test  -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:12
+9;4;4;2
+time nextflow kuberun https://github.com/jonathanbader/chipseq -profile docker,test  -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:9
 
-time nextflow kuberun https://github.com/jonathanbader/chipseq -profile docker,test  -v fileserver-claim:/mnt/data -pod-image jonathanbader/tarema-nf-fork:1
-
-time nextflow kuberun https://github.com/jonathanbader/chipseq -profile docker,test  -v fileserver-claim:/mnt/data -pod-image jonathanbader/tarema-nf-fork:2
+For JSFN:
+5;5;5
+time nextflow kuberun https://github.com/jonathanbader/chipseq -profile docker,test  -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:3
+9;4;4;2
+time nextflow kuberun https://github.com/jonathanbader/chipseq -profile docker,test  -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:6

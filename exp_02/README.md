@@ -20,6 +20,14 @@ Downloading the files to you local computer and copying them via ssh is also pos
 
 Please run the following command to execute the workflow:
 
-time nextflow kuberun https://github.com/jonathanbader/eager -profile docker --input './eager/*_{1,2}.fastq.gz' --fasta './eager/AJ844647.1.fasta' --run_mtnucratio  --mapper circularmapper -with-report -v fileserver-claim:/mnt/data -pod-image jonathanbader/tarema-nf-fork:1
+For Tarema and the basic schedulers:
+5;5;5
+time nextflow kuberun https://github.com/jonathanbader/eager -profile docker --input './eager/*_{1,2}.fastq.gz' --fasta './eager/AJ844647.1.fasta' --run_mtnucratio  --mapper circularmapper -with-report -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:12
+9;4;4;2
+time nextflow kuberun https://github.com/jonathanbader/eager -profile docker --input './eager/*_{1,2}.fastq.gz' --fasta './eager/AJ844647.1.fasta' --run_mtnucratio  --mapper circularmapper -with-report -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:9
 
-time nextflow kuberun https://github.com/jonathanbader/eager -profile docker --input './eager/*_{1,2}.fastq.gz' --fasta './eager/AJ844647.1.fasta' --run_mtnucratio  --mapper circularmapper -with-report -v fileserver-claim:/mnt/data -pod-image jonathanbader/tarema-nf-fork:2
+For JSFN:
+5;5;5
+time nextflow kuberun https://github.com/jonathanbader/eager -profile docker --input './eager/*_{1,2}.fastq.gz' --fasta './eager/AJ844647.1.fasta' --run_mtnucratio  --mapper circularmapper -with-report -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:3
+9;4;4;2
+time nextflow kuberun https://github.com/jonathanbader/eager -profile docker --input './eager/*_{1,2}.fastq.gz' --fasta './eager/AJ844647.1.fasta' --run_mtnucratio  --mapper circularmapper -with-report -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:6

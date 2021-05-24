@@ -25,7 +25,14 @@ sudo wget ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/viral/Escherichia_virus_Lam
 sudo wget ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/viral/Enterobacteria_phage_phiX174_sensu_lato/all_assembly_versions/GCA_002596845.1_ASM259684v1/GCA_002596845.1_ASM259684v1_genomic.fna.gz
 
 Please run the following command to execute the workflow:
+For Tarema and the basic schedulers:
+5;5;5
+time nextflow kuberun https://github.com/jonathanbader/mag -profile docker --input './mag/*_R{1,2}.fastq.gz' -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:10
+9;4;4;2
+time nextflow kuberun https://github.com/jonathanbader/mag -profile docker --input './mag/*_R{1,2}.fastq.gz' -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:11
 
-time nextflow kuberun https://github.com/jonathanbader/mag -profile docker --input './mag/*_R{1,2}.fastq.gz' -v fileserver-claim:/mnt/data -pod-image jonathanbader/tarema-nf-fork:1
-
-time nextflow kuberun https://github.com/jonathanbader/mag -profile docker --input './mag/*_R{1,2}.fastq.gz' -v fileserver-claim:/mnt/data -pod-image jonathanbader/tarema-nf-fork:2
+For JSFN:
+5;5;5
+time nextflow kuberun https://github.com/jonathanbader/mag -profile docker --input './mag/*_R{1,2}.fastq.gz' -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:6
+9;4;4;2
+time nextflow kuberun https://github.com/jonathanbader/mag -profile docker --input './mag/*_R{1,2}.fastq.gz' -v fileserver-claim:/mnt/data -pod-image was1docker/nf-fork:9
